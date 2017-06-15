@@ -18,10 +18,10 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //        setContentView(R.layout.activity_first);
         // 当前页面是外部调用 还是普通启动
-//        SharedUtil.putBoolean(this, "isLogin", true);
+        //        SharedUtil.putBoolean(this, "isLogin", true);
         if (SharedUtil.getBoolean(this, "isFirst", true)) {
             SharedUtil.putBoolean(this, "isFirst", false);
-            IntentUtil.launch(this, LeftMenuActivity.class);
+            IntentUtil.launch(this, SplashActivity.class);
         } else {
             // TODO: 2017/6/15 暂时 登录入口放在这里
             if (UserInfoUtil.isLogin(this)) {

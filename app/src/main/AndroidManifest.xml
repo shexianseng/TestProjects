@@ -34,11 +34,6 @@
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity
-            android:name=".activity.LeftMenuActivity"
-            android:label="@string/title_activity_left_menu"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <activity android:name=".activity.FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

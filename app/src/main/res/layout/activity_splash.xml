@@ -7,4 +7,8 @@
     android:layout_height="match_parent"
     tools:context="com.testprojects.activity.SplashActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@color/colorAccent"/>
 </android.support.constraint.ConstraintLayout>
