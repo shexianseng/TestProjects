@@ -1,4 +1,4 @@
-package com.testprojects.activity;
+package com.testprojects.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
