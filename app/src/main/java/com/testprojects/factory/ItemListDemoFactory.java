@@ -7,6 +7,8 @@ import android.widget.Button;
 import com.testprojects.MainActivity;
 import com.testprojects.R;
 import com.testprojects.activity.LoginActivity;
+import com.testprojects.activity.NotificationActivity;
+import com.testprojects.activity.ProgressActivity;
 import com.testprojects.activity.ScrollingActivity;
 import com.testprojects.activity.SplashActivity;
 import com.testprojects.activity.YaoYiYaoActivity;
@@ -69,6 +71,10 @@ public class ItemListDemoFactory extends AssemblyRecyclerItemFactory<ItemListDem
                         IntentUtil.launch(mContext, ScrollingActivity.class);
                     } else if (i == 4) {
                         IntentUtil.launch(mContext, LoginActivity.class);
+                    } else if (i == 5) {
+                        IntentUtil.launch(mContext, ProgressActivity.class);
+                    } else if (i == 6) {
+                        IntentUtil.launch(mContext, NotificationActivity.class);
                     }
                 });
             }

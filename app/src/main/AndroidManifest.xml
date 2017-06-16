@@ -44,16 +44,29 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".activity.SplashActivity"
+        <activity
+            android:name=".activity.SplashActivity"
             android:label="@string/title_splash">
         </activity>
 
-        <activity android:name=".activity.ListDemoActivity"
+        <activity
+            android:name=".activity.ListDemoActivity"
             android:label="@string/title_list_demo">
         </activity>
 
-        <activity android:name=".activity.YaoYiYaoActivity"
+        <activity
+            android:name=".activity.YaoYiYaoActivity"
             android:label="@string/title_yao_yi_yao">
+        </activity>
+
+        <activity
+            android:name=".activity.ProgressActivity"
+            android:label="@string/title_progress">
+        </activity>
+
+        <activity
+            android:name=".activity.NotificationActivity"
+            android:label="@string/title_notification">
         </activity>
     </application>
 
