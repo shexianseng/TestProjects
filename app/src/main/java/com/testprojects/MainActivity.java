@@ -3,9 +3,9 @@ package com.testprojects;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
+import com.testprojects.activity.ListDemoActivity;
 import com.testprojects.activity.SettingsActivity;
 import com.testprojects.base.BaseActivity;
 import com.testprojects.utils.IntentUtil;
@@ -28,8 +28,6 @@ public class MainActivity extends BaseActivity {
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_settings);
-                    mTextMessage.setOnClickListener(view ->
-                            IntentUtil.launch(MainActivity.this, SettingsActivity.class));
                     return true;
             }
             return false;

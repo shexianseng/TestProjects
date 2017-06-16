@@ -1,9 +1,12 @@
 <resources>
-    <string name="app_name">神话百科</string>
+    <string name="app_name">Android-Demo</string>
     <string name="title_home">首页</string>
     <string name="title_search">搜索</string>
     <string name="title_settings">设置</string>
     <string name="title_activity_login">登录|注册</string>
+    <string name="title_bottom_navigation_view">底部导航</string>
+    <string name="title_splash">欢迎</string>
+    <string name="title_list_demo">Demo列表</string>
 
     <!-- Strings related to login -->
     <string name="prompt_phone">手机号</string>
@@ -206,4 +209,5 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="login_hint">PS: 当输入的手机号未注册时，默认注册</string>
+    <string name="title_yao_yi_yao">摇一摇</string>
 </resources>

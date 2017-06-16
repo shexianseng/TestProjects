@@ -25,7 +25,7 @@ public class FirstActivity extends AppCompatActivity {
         } else {
             // TODO: 2017/6/15 暂时 登录入口放在这里
             if (UserInfoUtil.isLogin(this)) {
-                IntentUtil.launch(this, MainActivity.class);
+                IntentUtil.launch(this, ListDemoActivity.class);
             } else {
                 IntentUtil.launch(this, LoginActivity.class);
             }
