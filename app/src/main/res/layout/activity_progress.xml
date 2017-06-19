@@ -5,6 +5,9 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+
+    <!-- 一直在转动的一个组件  消失设置为 Gone 就可以了
+    目前没有提供 stop dismiss cancel等之类的方法 推荐使用 progressDialog-->
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"

@@ -29,16 +29,29 @@ public class ProgressActivity extends BaseActivity {
         textShowNum = (TextView) findViewById(R.id.textShowNum);
         findViewById(R.id.button).setOnClickListener(v -> {
                     showProgressDialog();
-                    textShowNum.setText(String.valueOf(ratingBar.getProgress()));
-
                 }
         );
     }
 
+    /**
+     * 显示一个ProgressDialog
+     */
     private void showProgressDialog() {
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("加载中～");
-        progressDialog.show();
+        //设置触摸消失
         progressDialog.setCanceledOnTouchOutside(true);
+        progressDialog.setOnCancelListener(dialog ->
+                //消失时显示 当然选中的星星个数
+                textShowNum.setText(String.valueOf(ratingBar.getProgress()))
+        );
+
+        // 自动消失
+        new android.os.Handler().postDelayed(() -> {
+            if (progressDialog.isShowing()) {
+                progressDialog.cancel();
+            }
+        }, 2000);
+        progressDialog.show();
     }
 }
