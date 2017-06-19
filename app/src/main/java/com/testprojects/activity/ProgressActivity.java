@@ -1,5 +1,8 @@
 package com.testprojects.activity;
 
+import android.widget.RatingBar;
+import android.widget.TextView;
+
 import com.testprojects.R;
 import com.testprojects.base.BaseActivity;
 
@@ -9,6 +12,9 @@ import com.testprojects.base.BaseActivity;
  */
 
 public class ProgressActivity extends BaseActivity {
+    private RatingBar ratingBar;
+    private TextView textShowNum;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_progress;
@@ -16,6 +22,11 @@ public class ProgressActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        
+        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        ratingBar.setProgress(1);
+        ratingBar.setNumStars(5);
+        textShowNum = (TextView) findViewById(R.id.textShowNum);
+        findViewById(R.id.button).setOnClickListener(v ->
+                textShowNum.setText(String.valueOf(ratingBar.getProgress())));
     }
 }
