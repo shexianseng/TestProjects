@@ -1,5 +1,6 @@
 package com.testprojects.activity;
 
+import android.app.ProgressDialog;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -26,7 +27,18 @@ public class ProgressActivity extends BaseActivity {
         ratingBar.setProgress(1);
         ratingBar.setNumStars(5);
         textShowNum = (TextView) findViewById(R.id.textShowNum);
-        findViewById(R.id.button).setOnClickListener(v ->
-                textShowNum.setText(String.valueOf(ratingBar.getProgress())));
+        findViewById(R.id.button).setOnClickListener(v -> {
+                    showProgressDialog();
+                    textShowNum.setText(String.valueOf(ratingBar.getProgress()));
+
+                }
+        );
+    }
+
+    private void showProgressDialog() {
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("加载中～");
+        progressDialog.show();
+        progressDialog.setCanceledOnTouchOutside(true);
     }
 }
