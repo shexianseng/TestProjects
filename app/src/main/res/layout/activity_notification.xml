@@ -11,7 +11,13 @@
         android:text="@string/send_message"/>
 
     <Button
-        android:id="@+id/cancelMessage"
+        android:id="@+id/sendSimpleMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/send_simple_message"/>
+
+    <Button
+        android:id="@+id/closeMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/cancel_message"/>

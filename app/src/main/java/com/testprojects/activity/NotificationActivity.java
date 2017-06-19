@@ -19,8 +19,11 @@ public class NotificationActivity extends BaseActivity {
         findViewById(R.id.sendNewMessage).setOnClickListener(view ->
                 showNewMessage(true)
         );
-        findViewById(R.id.cancelMessage).setOnClickListener(view ->
-                showNewMessage(true)
+        findViewById(R.id.sendSimpleMessage).setOnClickListener(view ->
+                showNewMessage(false)
+        );
+        findViewById(R.id.closeMessage).setOnClickListener(view ->
+                NewMessageNotification.cancel(this)
         );
     }
 
@@ -28,8 +31,7 @@ public class NotificationActivity extends BaseActivity {
         if (isShow) {
             NewMessageNotification.notify(this, "我是一个通知", 10);
         } else {
-            // TODO: 2017/6/16  暂时不知道什么原因 不起作用
-            NewMessageNotification.cancel(this);
+            NewMessageNotification.notify(this, "我是一个简单的通知");
         }
     }
 }

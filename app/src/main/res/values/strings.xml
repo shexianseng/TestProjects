@@ -206,6 +206,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="login_hint">PS: 当输入的手机号未注册时，默认注册</string>
     <string name="send_message">发送一个通知</string>
+    <string name="send_simple_message">发送一个简单通知</string>
     <string name="cancel_message">关闭一个通知</string>
     <string name="show_num">显示选中进度</string>
 </resources>
