@@ -30,7 +30,6 @@ public class ListDemoActivity extends BaseActivity {
         List<ItemListDemoBean> dataString = new ArrayList<>();
         dataString.add(new ItemListDemoBean().setItemData("摇一摇"));
         dataString.add(new ItemListDemoBean().setItemData("底部导航栏"));
-        dataString.add(new ItemListDemoBean().setItemData("欢迎"));
         dataString.add(new ItemListDemoBean().setItemData("滑动详情页"));
         dataString.add(new ItemListDemoBean().setItemData("登录"));
         dataString.add(new ItemListDemoBean().setItemData("进度条"));
@@ -44,6 +43,7 @@ public class ListDemoActivity extends BaseActivity {
         adapter.addItemFactory(new ItemListDemoFactory());
         recyclerView.setAdapter(adapter);
         findViewById(R.id.floatingActionButton).setOnClickListener(view -> {
+                    //google 模版设置页面
                     IntentUtil.launch(ListDemoActivity.this, SettingsActivity.class);
                 }
         );

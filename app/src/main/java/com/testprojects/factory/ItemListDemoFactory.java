@@ -10,7 +10,6 @@ import com.testprojects.activity.LoginActivity;
 import com.testprojects.activity.NotificationActivity;
 import com.testprojects.activity.ProgressActivity;
 import com.testprojects.activity.ScrollingActivity;
-import com.testprojects.activity.SplashActivity;
 import com.testprojects.activity.YaoYiYaoActivity;
 import com.testprojects.net.bean.ItemListDemoBean;
 import com.testprojects.utils.IntentUtil;
@@ -66,15 +65,16 @@ public class ItemListDemoFactory extends AssemblyRecyclerItemFactory<ItemListDem
                     } else if (i == 1) {
                         IntentUtil.launch(mContext, MainActivity.class);
                     } else if (i == 2) {
-                        IntentUtil.launch(mContext, SplashActivity.class);
-                    } else if (i == 3) {
                         IntentUtil.launch(mContext, ScrollingActivity.class);
-                    } else if (i == 4) {
+                    } else if (i == 3) {
                         IntentUtil.launch(mContext, LoginActivity.class);
-                    } else if (i == 5) {
+                    } else if (i == 4) {
                         IntentUtil.launch(mContext, ProgressActivity.class);
-                    } else if (i == 6) {
+                    } else if (i == 5) {
                         IntentUtil.launch(mContext, NotificationActivity.class);
+                    } else if (i == 6) {
+                        // TODO: 2017/6/19 暂时没有
+                        //                        IntentUtil.launch(mContext, NotificationActivity.class);
                     }
                 });
             }
