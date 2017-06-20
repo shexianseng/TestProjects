@@ -15,7 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".activity.FirstActivity"
             android:theme="@style/SplashTheme">
@@ -25,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:label="@string/title_bottom_navigation_view"
@@ -45,25 +43,34 @@
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
             android:name=".activity.ListDemoActivity"
             android:label="@string/title_list_demo">
         </activity>
-
         <activity
             android:name=".activity.YaoYiYaoActivity"
             android:label="@string/title_yao_yi_yao">
         </activity>
-
         <activity
             android:name=".activity.ProgressActivity"
             android:label="@string/title_progress">
         </activity>
-
         <activity
             android:name=".activity.NotificationActivity"
             android:label="@string/title_notification">
+        </activity>
+        <activity
+            android:name=".activity.DialogActivity"
+            android:label="@string/title_dialog">
+        </activity>
+        <activity
+            android:name=".activity.LeftMenuActivity"
+            android:label="@string/title_activity_left_menu"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.SnackBarActivity"
+            android:label="@string/title_snack_bar">
         </activity>
     </application>
 

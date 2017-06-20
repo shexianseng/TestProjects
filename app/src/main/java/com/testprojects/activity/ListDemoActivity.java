@@ -34,6 +34,9 @@ public class ListDemoActivity extends BaseActivity {
         dataString.add(new ItemListDemoBean().setItemData("登录"));
         dataString.add(new ItemListDemoBean().setItemData("进度条"));
         dataString.add(new ItemListDemoBean().setItemData("通知"));
+        dataString.add(new ItemListDemoBean().setItemData("对话框"));
+        dataString.add(new ItemListDemoBean().setItemData("左滑菜单"));
+        dataString.add(new ItemListDemoBean().setItemData("SnackBar的使用"));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

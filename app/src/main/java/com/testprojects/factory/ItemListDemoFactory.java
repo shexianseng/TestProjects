@@ -6,10 +6,13 @@ import android.widget.Button;
 
 import com.testprojects.MainActivity;
 import com.testprojects.R;
+import com.testprojects.activity.DialogActivity;
+import com.testprojects.activity.LeftMenuActivity;
 import com.testprojects.activity.LoginActivity;
 import com.testprojects.activity.NotificationActivity;
 import com.testprojects.activity.ProgressActivity;
 import com.testprojects.activity.ScrollingActivity;
+import com.testprojects.activity.SnackBarActivity;
 import com.testprojects.activity.YaoYiYaoActivity;
 import com.testprojects.net.bean.ItemListDemoBean;
 import com.testprojects.utils.IntentUtil;
@@ -73,8 +76,11 @@ public class ItemListDemoFactory extends AssemblyRecyclerItemFactory<ItemListDem
                     } else if (i == 5) {
                         IntentUtil.launch(mContext, NotificationActivity.class);
                     } else if (i == 6) {
-                        // TODO: 2017/6/19 暂时没有
-                        //                        IntentUtil.launch(mContext, NotificationActivity.class);
+                        IntentUtil.launch(mContext, DialogActivity.class);
+                    } else if (i == 7) {
+                        IntentUtil.launch(mContext, LeftMenuActivity.class);
+                    } else if (i == 8) {
+                        IntentUtil.launch(mContext, SnackBarActivity.class);
                     }
                 });
             }

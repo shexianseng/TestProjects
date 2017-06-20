@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="menu_list">
+        <item>我是第1个</item>
+        <item>我是第2个</item>
+        <item>我是第3个</item>
+        <item>我是第4个</item>
+        <item>我是第5个</item>
+        <item>我是第6个</item>
+        <item>我是第7个</item>
+        <item>我是第8个</item>
+        <item>我是第9个</item>
+    </array>
+</resources>

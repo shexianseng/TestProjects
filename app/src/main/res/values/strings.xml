@@ -10,6 +10,8 @@
     <string name="title_yao_yi_yao">摇一摇</string>
     <string name="title_progress">进度条</string>
     <string name="title_notification">通知</string>
+    <string name="title_dialog">对话框</string>
+    <string name="title_snack_bar">SnackBar的使用</string>
 
     <!-- Strings related to login -->
     <string name="prompt_phone">手机号</string>
@@ -209,4 +211,8 @@
     <string name="send_simple_message">发送一个简单通知</string>
     <string name="cancel_message">关闭一个通知</string>
     <string name="show_num">显示选中进度</string>
+    <string name="ok_cancel_dialog">确定取消对话框</string>
+    <string name="ok_dialog">确认</string>
+    <string name="user_name">tianyu.she</string>
+    <string name="user_email">yuyexiaoxiang@gmail.com</string>
 </resources>
