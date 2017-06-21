@@ -9,7 +9,7 @@ Android Test项目:
 --------------
 
 - Android minSdkVersion 23
-- Android targetSdkVersion 25
+- Android targetSdkVersion 26
 - Android buildToolsVersion 25.0.3
 
 License
