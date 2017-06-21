@@ -33,7 +33,7 @@ public class FirstActivity extends AppCompatActivity {
         //时间太快 人为延迟一下
         new Handler().postDelayed(() ->
                 {
-                    IntentUtil.launch(this, ListDemoActivity.class);
+                    IntentUtil.launch(this, LeftMenuActivity.class);
                     finish();
                 }
                 , 1500);

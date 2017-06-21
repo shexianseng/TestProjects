@@ -44,10 +44,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".activity.ListDemoActivity"
-            android:label="@string/title_list_demo">
-        </activity>
-        <activity
             android:name=".activity.YaoYiYaoActivity"
             android:label="@string/title_yao_yi_yao">
         </activity>

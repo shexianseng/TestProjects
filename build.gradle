@@ -3,7 +3,9 @@
 buildscript {
 
     repositories {
-//        maven { url 'https://maven.google.com' }
+//        maven { url 'https://maven.google.com' } //无法访问
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
+//        https://dl.google.com/dl/android/maven2/index.html
         jcenter()
     }
     dependencies {
@@ -16,7 +18,8 @@ buildscript {
 
 allprojects {
     repositories {
-//        maven { url 'https://maven.google.com' }
+//        maven { url 'https://maven.google.com' }  //无法访问
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
         jcenter()
     }
 }

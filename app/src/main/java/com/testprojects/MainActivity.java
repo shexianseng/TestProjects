@@ -5,10 +5,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.testprojects.activity.ListDemoActivity;
-import com.testprojects.activity.SettingsActivity;
 import com.testprojects.base.BaseActivity;
-import com.testprojects.utils.IntentUtil;
 
 public class MainActivity extends BaseActivity {
 
