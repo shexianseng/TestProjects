@@ -12,6 +12,7 @@
     <string name="title_notification">通知</string>
     <string name="title_dialog">对话框</string>
     <string name="title_snack_bar">SnackBar的使用</string>
+    <string name="title_flex_box">FlexBox的使用</string>
 
     <!-- Strings related to login -->
     <string name="prompt_phone">手机号</string>

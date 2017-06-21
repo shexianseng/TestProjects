@@ -68,6 +68,10 @@
             android:name=".activity.SnackBarActivity"
             android:label="@string/title_snack_bar">
         </activity>
+        <activity
+            android:name=".activity.FlexBoxActivity"
+            android:label="@string/title_flex_box">
+        </activity>
     </application>
 
 </manifest>

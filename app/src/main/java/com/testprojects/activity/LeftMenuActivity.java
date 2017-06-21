@@ -114,6 +114,7 @@ public class LeftMenuActivity extends BaseActivity
         dataString.add(new ItemListDemoBean().setItemData("通知"));
         dataString.add(new ItemListDemoBean().setItemData("对话框"));
         dataString.add(new ItemListDemoBean().setItemData("SnackBar的使用"));
+        dataString.add(new ItemListDemoBean().setItemData("FlexBox的使用"));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

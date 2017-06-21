@@ -7,6 +7,7 @@ import android.widget.Button;
 import com.testprojects.MainActivity;
 import com.testprojects.R;
 import com.testprojects.activity.DialogActivity;
+import com.testprojects.activity.FlexBoxActivity;
 import com.testprojects.activity.LoginActivity;
 import com.testprojects.activity.NotificationActivity;
 import com.testprojects.activity.ProgressActivity;
@@ -79,8 +80,7 @@ public class ItemListDemoFactory extends AssemblyRecyclerItemFactory<ItemListDem
                     } else if (i == 7) {
                         IntentUtil.launch(mContext, SnackBarActivity.class);
                     } else if (i == 8) {
-                        // TODO: 2017/6/21 待修改
-                        IntentUtil.launch(mContext, SnackBarActivity.class);
+                        IntentUtil.launch(mContext, FlexBoxActivity.class);
                     }
                 });
             }
