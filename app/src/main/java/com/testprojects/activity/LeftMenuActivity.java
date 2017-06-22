@@ -11,6 +11,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -40,6 +41,8 @@ public class LeftMenuActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private RxPermissions permissions;
+    private Boolean isGridView;
+
 
     @Override
     protected int getLayoutId() {
@@ -120,9 +123,25 @@ public class LeftMenuActivity extends BaseActivity
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        isGridView = false;
         AssemblyRecyclerAdapter adapter = new AssemblyRecyclerAdapter(dataString);
         adapter.addItemFactory(new ItemListDemoFactory());
         recyclerView.setAdapter(adapter);
+
+        findViewById(R.id.recyclerButton).setOnClickListener(view ->
+                {
+                    if (!isGridView) {
+                        recyclerView.setLayoutManager(gridLayoutManager);
+                        isGridView = true;
+                    } else {
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        isGridView = false;
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+        );
     }
 
     @Override
