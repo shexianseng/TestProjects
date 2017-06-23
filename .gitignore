@@ -12,3 +12,7 @@ gradle
 gradlew.bat
 gradle.properties
 gradlew
+app/xm/release
+app/ls/release
+app/qh/release
+app/tx/release

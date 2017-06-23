@@ -21,7 +21,33 @@ android {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
+
+    flavorDimensions(
+            ""
+    )
+
+    productFlavors {
+        ls {
+            manifestPlaceholders = [TD_CHANNEL_VALUE: "ls"]
+        }
+        xm {
+            manifestPlaceholders = [TD_CHANNEL_VALUE: "xm"]
+        }
+        tx {
+            manifestPlaceholders = [TD_CHANNEL_VALUE: "tx"]
+        }
+        qh {
+            manifestPlaceholders = [TD_CHANNEL_VALUE: "qh"]
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${variant.name}-${variant.versionName}--${variant.versionCode}.apk"
+        }
+    }
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -48,7 +74,7 @@ dependencies {
     //网络请求框架
     implementation 'io.reactivex:rxjava:1.2.9'
 
-    implementation 'com.google.android:flexbox:0.2.6'
+    implementation 'com.google.android:flexbox:0.2.7'
 }
 
 repositories {
