@@ -3,6 +3,7 @@ package com.testprojects.activity;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.CalendarView;
 import android.widget.Chronometer;
@@ -39,43 +40,9 @@ public class CalendarActivity extends BaseActivity {
         CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
 
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            //倒计时 值
-            //            chronometer.setCountDown(true);
-            chronometer.setCountDown(false);
-        }
+        initChronometer(chronometer);
 
-        chronometer.setBase(SystemClock.elapsedRealtime());
-        findViewById(R.id.start).setOnClickListener(view ->
-                chronometer.start()
-        );
-        findViewById(R.id.stop).setOnClickListener(view ->
-                chronometer.stop()
-        );
-        findViewById(R.id.reStart).setOnClickListener(view ->
-                {
-                    chronometer.stop();
-                    chronometer.setBase(SystemClock.elapsedRealtime());
-                }
-        );
-        chronometer.setOnChronometerTickListener(chronometer1 ->
-                {
-                    // 获取到当前的值
-                    Log.e(TAG, chronometer1.getText().toString());
-                }
-        );
-
-        Log.e(TAG, "textClock---" + textClock.is24HourModeEnabled());
-        //24小时显示
-        timePicker.setIs24HourView(false);
-
-        //经过测试  timePicker.getHour() 和 timePicker.setIs24HourView(false);
-        //这个没有关系 一直是24小时显示
-        if (timePicker.is24HourView()) {
-            Log.e(TAG, timePicker.getHour() - 12 + "--hour--" + timePicker.getMinute());
-        } else {
-            Log.e(TAG, timePicker.getHour() + "--hour--" + timePicker.getMinute());
-        }
+        initTextClockOrTimePicker(textClock, timePicker);
 
 
         // 注意 Android系统的month 从0开始
@@ -84,8 +51,12 @@ public class CalendarActivity extends BaseActivity {
         Log.e(TAG, "getDayOfMonth: " + datePicker.getDayOfMonth()
                 + "--getMonth--" + (datePicker.getMonth() + 1)
                 + "--getYear--" + datePicker.getYear());
+        initCalendarView(calendarView);
 
 
+    }
+
+    private void initCalendarView(@NonNull CalendarView calendarView) {
         //日历Util类
         Calendar instance = Calendar.getInstance();
         int year = instance.get(Calendar.YEAR);
@@ -114,5 +85,47 @@ public class CalendarActivity extends BaseActivity {
         String dataTime = f.format(date);
 
         Log.e(TAG, "--当前日期--" + dataTime);
+    }
+
+    private void initTextClockOrTimePicker(@NonNull TextClock textClock, @NonNull TimePicker timePicker) {
+        Log.e(TAG, "textClock---" + textClock.is24HourModeEnabled());
+        //24小时显示
+        timePicker.setIs24HourView(false);
+
+        //经过测试  timePicker.getHour() 和 timePicker.setIs24HourView(false);
+        //这个没有关系 一直是24小时显示
+        if (timePicker.is24HourView()) {
+            Log.e(TAG, timePicker.getHour() - 12 + "--hour--" + timePicker.getMinute());
+        } else {
+            Log.e(TAG, timePicker.getHour() + "--hour--" + timePicker.getMinute());
+        }
+    }
+
+    private void initChronometer(@NonNull Chronometer chronometer) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            //倒计时 值
+            //            chronometer.setCountDown(true);
+            chronometer.setCountDown(false);
+        }
+
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        findViewById(R.id.start).setOnClickListener(view ->
+                chronometer.start()
+        );
+        findViewById(R.id.stop).setOnClickListener(view ->
+                chronometer.stop()
+        );
+        findViewById(R.id.reStart).setOnClickListener(view ->
+                {
+                    chronometer.stop();
+                    chronometer.setBase(SystemClock.elapsedRealtime());
+                }
+        );
+        chronometer.setOnChronometerTickListener(chronometer1 ->
+                {
+                    // 获取到当前的值
+                    Log.e(TAG, chronometer1.getText().toString());
+                }
+        );
     }
 }

@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -57,6 +58,7 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
+    @Nullable
     private UserLoginTask mAuthTask = null;
 
     // UI references.
@@ -203,12 +205,12 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
         }
     }
 
-    private boolean isPhoneValid(String phone) {
+    private boolean isPhoneValid(@NonNull String phone) {
         //TODO: Replace this with your own logic
         return phone.length() == 11;
     }
 
-    private boolean isPasswordValid(String password) {
+    private boolean isPasswordValid(@NonNull String password) {
         //TODO: Replace this with your own logic
         return password.length() > 4;
     }
@@ -249,6 +251,7 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
         }
     }
 
+    @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(this,
@@ -267,7 +270,7 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
+    public void onLoadFinished(Loader<Cursor> cursorLoader, @NonNull Cursor cursor) {
         List<String> emails = new ArrayList<>();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -283,7 +286,7 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
 
     }
 
-    private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
+    private void addEmailsToAutoComplete(@NonNull List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<>(LoginActivity.this,
@@ -300,7 +303,6 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
         };
 
         int ADDRESS = 0;
-        int IS_PRIMARY = 1;
     }
 
     /**

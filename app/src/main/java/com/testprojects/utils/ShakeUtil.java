@@ -1,12 +1,11 @@
 package com.testprojects.utils;
 
 import android.content.Context;
-import android.content.MutableContextWrapper;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.util.Log;
+import android.support.annotation.NonNull;
 
 /**
  * Created by she on 2017/6/16.
@@ -15,7 +14,6 @@ import android.util.Log;
 
 public class ShakeUtil implements SensorEventListener {
 
-    private String TAG = "ShakeUtil";
     // 速度阀值 当摇晃速度达到这个值后产生作用
     private final static int SPEED_SHRESHOLD = 300;
     // 俩次检测的时间间隔
@@ -67,7 +65,7 @@ public class ShakeUtil implements SensorEventListener {
 
     //重力传感器感应数据变化
     @Override
-    public void onSensorChanged(SensorEvent event) {
+    public void onSensorChanged(@NonNull SensorEvent event) {
         // 现在检测时间
         long currentUpdateTime = System.currentTimeMillis();
         // 两次检测的时间间隔

@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 
 import com.testprojects.R;
@@ -43,7 +44,7 @@ public class NewMessageNotification {
      *
      * @see #cancel(Context)
      */
-    public static void notify(final Context context,
+    public static void notify(@NonNull final Context context,
                               final String exampleString) {
         final Resources res = context.getResources();
 
@@ -52,7 +53,7 @@ public class NewMessageNotification {
         final Bitmap picture = BitmapFactory.decodeResource(res, R.drawable.example_picture);
 
 
-        final String ticker = exampleString;
+//        final String ticker = exampleString;
         final String title = res.getString(
                 R.string.new_message_notification_title_template, exampleString);
         final String text = res.getString(
@@ -81,7 +82,7 @@ public class NewMessageNotification {
                 .setLargeIcon(picture)
 
                 // Set ticker text (preview) information for this notification.
-                .setTicker(ticker)
+                .setTicker(exampleString)
 
                 // Show a number. This is useful when stacking notifications of
                 // a single type.
@@ -153,7 +154,7 @@ public class NewMessageNotification {
      *
      * @see #cancel(Context)
      */
-    public static void notify(final Context context,
+    public static void notify(@NonNull final Context context,
                               final String exampleString, final int number) {
         final Resources res = context.getResources();
 
@@ -162,7 +163,7 @@ public class NewMessageNotification {
         final Bitmap picture = BitmapFactory.decodeResource(res, R.drawable.example_picture);
 
 
-        final String ticker = exampleString;
+//        final String ticker = exampleString;
         final String title = res.getString(
                 R.string.new_message_notification_title_template, exampleString);
         final String text = res.getString(
@@ -191,7 +192,7 @@ public class NewMessageNotification {
                 .setLargeIcon(picture)
 
                 // Set ticker text (preview) information for this notification.
-                .setTicker(ticker)
+                .setTicker(exampleString)
 
                 // Show a number. This is useful when stacking notifications of
                 // a single type.
@@ -249,7 +250,7 @@ public class NewMessageNotification {
     }
 
     @TargetApi(Build.VERSION_CODES.ECLAIR)
-    private static void notify(final Context context, final Notification notification) {
+    private static void notify(@NonNull final Context context, final Notification notification) {
         final NotificationManager nm = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
@@ -264,7 +265,7 @@ public class NewMessageNotification {
      * {@link #notify(Context, String, int)}.
      */
     @TargetApi(Build.VERSION_CODES.ECLAIR)
-    public static void cancel(final Context context) {
+    public static void cancel(@NonNull final Context context) {
         final NotificationManager nm = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
