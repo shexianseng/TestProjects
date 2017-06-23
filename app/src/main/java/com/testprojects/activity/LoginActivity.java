@@ -203,11 +203,6 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
         }
     }
 
-    @Override
-    protected String getTAG() {
-        return getClass().getSimpleName();
-    }
-
     private boolean isPhoneValid(String phone) {
         //TODO: Replace this with your own logic
         return phone.length() == 11;

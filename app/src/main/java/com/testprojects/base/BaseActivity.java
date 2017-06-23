@@ -23,10 +23,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract int getLayoutId();
 
-    protected String getTAG() {
-        return TAG;
-    }
-
     protected abstract void initView();
 
     protected void initData() {

@@ -38,7 +38,7 @@ public class SnackBarActivity extends BaseActivity {
                                 @Override
                                 public void onDismissed(Snackbar transientBottomBar, int event) {
                                     super.onDismissed(transientBottomBar, event);
-                                    Log.e(getTAG(), "消失后的会掉");
+                                    Log.e(TAG, "消失后的会掉");
                                 }
                             })
                             .show();

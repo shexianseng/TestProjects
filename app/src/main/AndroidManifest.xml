@@ -72,6 +72,10 @@
             android:name=".activity.FlexBoxActivity"
             android:label="@string/title_flex_box">
         </activity>
+        <activity
+            android:name=".activity.CalendarActivity"
+            android:label="@string/title_calendar">
+        </activity>
     </application>
 
 </manifest>

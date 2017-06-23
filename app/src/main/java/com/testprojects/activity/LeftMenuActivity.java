@@ -72,7 +72,7 @@ public class LeftMenuActivity extends BaseActivity
                         //                    data.putExtra(Intent.EXTRA_TEXT, "这是内容");
                         startActivity(data);
                     } catch (Exception e) {
-                        Log.e(getTAG(), "未安装Email服务或者已停用Email服务");
+                        Log.e(TAG, "未安装Email服务或者已停用Email服务");
                     }
                 }
         );
@@ -118,14 +118,18 @@ public class LeftMenuActivity extends BaseActivity
         dataString.add(new ItemListDemoBean().setItemData("对话框"));
         dataString.add(new ItemListDemoBean().setItemData("SnackBar的使用"));
         dataString.add(new ItemListDemoBean().setItemData("FlexBox的使用"));
+        dataString.add(new ItemListDemoBean().setItemData("日历"));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
-        isGridView = false;
+
+        recyclerView.setLayoutManager(gridLayoutManager);
+        //默认 gridView布局
+        isGridView = true;
         AssemblyRecyclerAdapter adapter = new AssemblyRecyclerAdapter(dataString);
         adapter.addItemFactory(new ItemListDemoFactory());
         recyclerView.setAdapter(adapter);
@@ -192,7 +196,7 @@ public class LeftMenuActivity extends BaseActivity
                 permissions.request(Manifest.permission.CAMERA)
                         .subscribe(o ->
                                 {
-                                    Log.e(getTAG(), "获取到了权限");
+                                    Log.e(TAG, "获取到了权限");
                                     showCamera();
                                 }
                         );
@@ -203,7 +207,7 @@ public class LeftMenuActivity extends BaseActivity
                         Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivity(intent);
             } catch (Exception e) {
-                Log.e(getTAG(), "相册未安装或已停止使用");
+                Log.e(TAG, "相册未安装或已停止使用");
             }
 
         } else if (id == R.id.nav_slideshow) {
@@ -226,7 +230,7 @@ public class LeftMenuActivity extends BaseActivity
                 permissions.request(Manifest.permission.SEND_SMS)
                         .subscribe(aBoolean -> {
                             {
-                                Log.e(getTAG(), "已获取到信息发送权限");
+                                Log.e(TAG, "已获取到信息发送权限");
                                 showSendSms();
                             }
                         });
@@ -250,7 +254,7 @@ public class LeftMenuActivity extends BaseActivity
             //            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + "10086"));
             startActivity(intent);
         } catch (Exception e) {
-            Log.e(getTAG(), "未安装信息或已停用");
+            Log.e(TAG, "未安装信息或已停用");
         }
     }
 
@@ -263,7 +267,7 @@ public class LeftMenuActivity extends BaseActivity
             intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivity(intent);
         } catch (Exception e) {
-            Log.e(getTAG(), "相机未安装或已停止使用");
+            Log.e(TAG, "相机未安装或已停止使用");
         }
     }
 }

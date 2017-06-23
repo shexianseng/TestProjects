@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import com.testprojects.MainActivity;
 import com.testprojects.R;
+import com.testprojects.activity.CalendarActivity;
 import com.testprojects.activity.DialogActivity;
 import com.testprojects.activity.FlexBoxActivity;
 import com.testprojects.activity.LoginActivity;
@@ -81,6 +82,8 @@ public class ItemListDemoFactory extends AssemblyRecyclerItemFactory<ItemListDem
                         IntentUtil.launch(mContext, SnackBarActivity.class);
                     } else if (i == 8) {
                         IntentUtil.launch(mContext, FlexBoxActivity.class);
+                    } else if (i == 9) {
+                        IntentUtil.launch(mContext, CalendarActivity.class);
                     }
                 });
             }
