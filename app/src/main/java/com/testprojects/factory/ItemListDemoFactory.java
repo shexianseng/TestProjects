@@ -11,6 +11,7 @@ import com.testprojects.activity.DialogActivity;
 import com.testprojects.activity.FlexBoxActivity;
 import com.testprojects.activity.LoginActivity;
 import com.testprojects.activity.NotificationActivity;
+import com.testprojects.activity.PlayVideoActivity;
 import com.testprojects.activity.ProgressActivity;
 import com.testprojects.activity.ScrollingActivity;
 import com.testprojects.activity.SnackBarActivity;
@@ -84,6 +85,8 @@ public class ItemListDemoFactory extends AssemblyRecyclerItemFactory<ItemListDem
                         IntentUtil.launch(mContext, FlexBoxActivity.class);
                     } else if (i == 9) {
                         IntentUtil.launch(mContext, CalendarActivity.class);
+                    } else if (i == 10) {
+                        IntentUtil.launch(mContext, PlayVideoActivity.class);
                     }
                 });
             }

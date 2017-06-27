@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -25,7 +26,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.tbruyelle.rxpermissions.RxPermissions;
 import com.testprojects.R;
 import com.testprojects.base.BaseActivity;
 import com.testprojects.factory.ItemListDemoFactory;
@@ -36,24 +36,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.xiaopan.assemblyadapter.AssemblyRecyclerAdapter;
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
 
 public class LeftMenuActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
-    private RxPermissions permissions;
+        implements NavigationView.OnNavigationItemSelectedListener, EasyPermissions.PermissionCallbacks {
+    /**
+     * 切换 GridView 和列表类型
+     */
     private Boolean isGridView;
+
+    private static final int RC_CAMERA_PERM = 123;
+    private static final int RC_LOCATION_CONTACTS_PERM = 124;
 
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_left_menu;
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        permissions = new RxPermissions(this);
-        permissions.setLogging(true);
-        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -119,6 +119,7 @@ public class LeftMenuActivity extends BaseActivity
         dataString.add(new ItemListDemoBean().setItemData("SnackBar的使用"));
         dataString.add(new ItemListDemoBean().setItemData("FlexBox的使用"));
         dataString.add(new ItemListDemoBean().setItemData("日历"));
+        dataString.add(new ItemListDemoBean().setItemData("Play Video"));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -189,18 +190,9 @@ public class LeftMenuActivity extends BaseActivity
 
         if (id == R.id.nav_camera) {
             //             Handle the camera action
-            boolean granted = permissions.isGranted(Manifest.permission.CAMERA);
-            if (granted) {
-                showCamera();
-            } else {
-                permissions.request(Manifest.permission.CAMERA)
-                        .subscribe(o ->
-                                {
-                                    Log.e(TAG, "获取到了权限");
-                                    showCamera();
-                                }
-                        );
-            }
+            // TODO: 2017/6/27 获取权限 
+//            showCamera();
+            cameraTask();
         } else if (id == R.id.nav_gallery) {
             try {
                 Intent intent = new Intent(
@@ -224,18 +216,9 @@ public class LeftMenuActivity extends BaseActivity
             // 目标应用选择对话框的标题
             startActivity(Intent.createChooser(intent, "选择分享"));
         } else if (id == R.id.nav_send) {
-            if (permissions.isGranted(Manifest.permission.SEND_SMS)) {
-                showSendSms();
-            } else {
-                permissions.request(Manifest.permission.SEND_SMS)
-                        .subscribe(aBoolean -> {
-                            {
-                                Log.e(TAG, "已获取到信息发送权限");
-                                showSendSms();
-                            }
-                        });
-            }
-
+            // TODO: 2017/6/27 获取权限
+//            showSendSms();
+            locationAndContactsTask();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -258,6 +241,20 @@ public class LeftMenuActivity extends BaseActivity
         }
     }
 
+    @AfterPermissionGranted(RC_LOCATION_CONTACTS_PERM)
+    public void locationAndContactsTask() {
+        String[] perms = { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CONTACTS };
+        if (EasyPermissions.hasPermissions(this, perms)) {
+            // Have permissions, do the thing!
+            Toast.makeText(this, "TODO: Location and Contacts things", Toast.LENGTH_LONG).show();
+            showSendSms();
+        } else {
+            // Ask for both permissions
+            EasyPermissions.requestPermissions(this, "This app needs access to your sms to read all your great messages.",
+                    RC_LOCATION_CONTACTS_PERM, perms);
+        }
+    }
+
     /**
      * 显示相机
      */
@@ -268,6 +265,55 @@ public class LeftMenuActivity extends BaseActivity
             startActivity(intent);
         } catch (Exception e) {
             Log.e(TAG, "相机未安装或已停止使用");
+        }
+    }
+
+    @AfterPermissionGranted(RC_CAMERA_PERM)
+    public void cameraTask() {
+        if (EasyPermissions.hasPermissions(this, Manifest.permission.CAMERA)) {
+            // Have permission, do the thing!
+            Toast.makeText(this, "TODO: Camera things", Toast.LENGTH_LONG).show();
+            showCamera();
+        } else {
+            // Ask for one permission
+            EasyPermissions.requestPermissions(this, "This app needs access to your camera so you can take pictures.",
+                    RC_CAMERA_PERM, Manifest.permission.CAMERA);
+        }
+    }
+
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+        Log.d(TAG, "onPermissionsGranted:" + requestCode + ":" + perms.size());
+
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        Log.d(TAG, "onPermissionsDenied:" + requestCode + ":" + perms.size());
+
+        // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
+        // This will display a dialog directing them to enable the permission in app settings.
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            new AppSettingsDialog.Builder(this).build().show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        // EasyPermissions handles the request result.
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == AppSettingsDialog.DEFAULT_SETTINGS_REQ_CODE) {
+            // Do something after user returned from app settings screen, like showing a Toast.
+            Toast.makeText(this, "Returned from app settings to MainActivity", Toast.LENGTH_SHORT)
+                    .show();
         }
     }
 }
