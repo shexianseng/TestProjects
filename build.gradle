@@ -8,11 +8,34 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-alpha4'
+        classpath 'com.android.tools.build:gradle:3.0.0-alpha5'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+}
+
+ext {
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.0 rc2'
+    minSdkVersion = 23
+    targetSdkVersion = 26
+    versionCode = 1
+    versionName = "1.0"
+    glide_version = "4.0.0-RC0"
+    junit_version = "4.12"
+    constraint_layout = "1.0.2"
+    glide_transformations = "2.0.2"
+    gpuimage_library = "1.4.1"
+    // Adapter
+    assemblyadapter = "2.3.0"
+    flexbox = "0.2.7"
+    easypermissions = "0.4.2"
+    support_version = "26.0.0-beta2"
+    exoplayer = "r2.4.2"
+    retrofit2_version = "2.3.0"
+    okhttp3_version = "3.8.1"
+    retrofit2_gson = "2.3.0"
 }
 
 allprojects {
