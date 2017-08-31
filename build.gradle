@@ -8,7 +8,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-alpha5'
+        classpath 'com.android.tools.build:gradle:3.0.0-beta3'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -17,7 +17,7 @@ buildscript {
 
 ext {
     compileSdkVersion = 26
-    buildToolsVersion = '26.0.0 rc2'
+    buildToolsVersion = '26.0.1'
     minSdkVersion = 23
     targetSdkVersion = 26
     versionCode = 1
@@ -31,7 +31,7 @@ ext {
     assemblyadapter = "2.3.0"
     flexbox = "0.2.7"
     easypermissions = "0.4.2"
-    support_version = "26.0.0-beta2"
+    support_version = "26.0.1"
     exoplayer = "r2.4.2"
     retrofit2_version = "2.3.0"
     okhttp3_version = "3.8.1"

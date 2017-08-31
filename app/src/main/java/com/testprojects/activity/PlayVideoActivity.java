@@ -23,12 +23,12 @@ public class PlayVideoActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mVideoView = (VideoView) findViewById(R.id.videoView);
+        mVideoView = findViewById(R.id.videoView);
 
         mVideoView.setOnErrorListener((mediaPlayer, i, i1) ->
                 false);
         mVideoView.setOnCompletionListener(mediaPlayer -> {
-            // TODO: 2017/6/26  
+            // TODO: 2017/6/26
             Log.e(TAG, "mediaPlayer--" + mediaPlayer.isPlaying());
         });
     }

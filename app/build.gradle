@@ -18,8 +18,8 @@ android {
         }
     }
     compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
     }
 
     flavorDimensions(
@@ -69,9 +69,8 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit2_version"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp3_version"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit2_gson"
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-}
-
-repositories {
-    mavenCentral() // jcenter() works as well because it pulls from Maven Central
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofit2_version"
+    implementation 'android.arch.persistence.room:rxjava2:1.0.0-alpha5'
+    implementation 'android.arch.persistence.room:runtime:1.0.0-alpha5'
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha5"
 }
